@@ -1,6 +1,10 @@
 package com.hotel.app.service;
 
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+import java.util.List;
+>>>>>>> 336108d810fbdb29f9055f327f3dde36c26ef128
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +23,7 @@ public CustomerServiceImpl(CustomerRepository customerRepository) {
 }
 
 @Override
+<<<<<<< HEAD
 public Customer CustomerFindByID(int id) {
 	
 	boolean flag = customerRepository.existsById(id);
@@ -34,4 +39,14 @@ public Customer CustomerFindByID(int id) {
 	return null;
 }
 
+=======
+public Customer saveCustomer(Customer customer) {
+	Customer save = customerRepository.save(customer);
+	return save;
+>>>>>>> 336108d810fbdb29f9055f327f3dde36c26ef128
 }
+
+
+}
+
+
