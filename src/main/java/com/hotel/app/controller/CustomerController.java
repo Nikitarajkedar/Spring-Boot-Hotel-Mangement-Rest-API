@@ -26,9 +26,7 @@ import com.hotel.app.model.Customer;
 import com.hotel.app.service.CustomerService;
 
 @RestController
-
 @RequestMapping(value = "/api")
-
 public class CustomerController {
 
 	private CustomerService customerService;
