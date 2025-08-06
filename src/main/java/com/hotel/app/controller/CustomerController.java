@@ -1,5 +1,11 @@
 package com.hotel.app.controller;
 
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -8,12 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import org.springframework.web.bind.annotation.RestController;
+
+
 
 import com.hotel.app.model.Customer;
 import com.hotel.app.service.CustomerService;
@@ -29,6 +36,19 @@ public class CustomerController {
 	public CustomerController(CustomerService customerService) {
 		super();
 		this.customerService = customerService;
+	}
+	
+	@GetMapping(value="/customers/{id}")
+	public ResponseEntity<Customer> CustomerFindById(@PathVariable int id )
+	{
+		Customer customer=customerService.CustomerFindByID(id);
+		
+		if(customer!=null)
+		{
+			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<Customer>(customer, HttpStatus.NO_CONTENT);
 	}
 
 	// GET all the products-By-Page
