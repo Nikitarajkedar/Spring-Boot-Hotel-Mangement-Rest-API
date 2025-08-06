@@ -78,7 +78,7 @@ public class CustomerServiceImpl implements CustomerService {
 			return "Deleted Customer Successfully";
 		}
 		
-		return "ID IS not find it";
+		return "Id Not Find it";
 	}
 
 }
