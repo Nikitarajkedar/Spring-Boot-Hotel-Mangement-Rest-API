@@ -11,6 +11,8 @@ public interface CustomerService {
 
 	Customer saveCustomer(Customer customer);
 
+	Customer updatById(Integer id, Customer customer);
+
 
 	
 }
