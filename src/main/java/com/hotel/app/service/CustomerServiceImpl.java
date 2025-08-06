@@ -2,7 +2,13 @@ package com.hotel.app.service;
 
 import java.util.List;
 
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+
+
 
 import com.hotel.app.model.Customer;
 import com.hotel.app.repository.CustomerRepository;
@@ -19,10 +25,23 @@ public CustomerServiceImpl(CustomerRepository customerRepository) {
 }
 
 @Override
+
+public List<Customer> getCutomerDataByPage(Integer pageNumber, Integer size) {
+
+PageRequest pageRequest= PageRequest.of(pageNumber, size);
+
+Page<Customer> page = customerRepository.findAll(pageRequest);
+
+List<Customer> dbproducts = page.getContent();
+
+return dbproducts;
+}
+
 public Customer saveCustomer(Customer customer) {
 	Customer save = customerRepository.save(customer);
 	return save;
 }
+
 
 
 }
