@@ -1,12 +1,18 @@
 package com.hotel.app.service;
 
-<<<<<<< HEAD
-import java.util.Optional;
-=======
-import java.util.List;
->>>>>>> 336108d810fbdb29f9055f327f3dde36c26ef128
 
+import java.util.Optional;
+
+import java.util.List;
+
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+
+
 
 import com.hotel.app.model.Customer;
 import com.hotel.app.repository.CustomerRepository;
@@ -23,7 +29,7 @@ public CustomerServiceImpl(CustomerRepository customerRepository) {
 }
 
 @Override
-<<<<<<< HEAD
+
 public Customer CustomerFindByID(int id) {
 	
 	boolean flag = customerRepository.existsById(id);
@@ -39,13 +45,24 @@ public Customer CustomerFindByID(int id) {
 	return null;
 }
 
-=======
+
+
+public List<Customer> getCutomerDataByPage(Integer pageNumber, Integer size) {
+
+PageRequest pageRequest= PageRequest.of(pageNumber, size);
+
+Page<Customer> page = customerRepository.findAll(pageRequest);
+
+List<Customer> dbproducts = page.getContent();
+
+return dbproducts;
+}
+
+
 public Customer saveCustomer(Customer customer) {
 	Customer save = customerRepository.save(customer);
 	return save;
->>>>>>> 336108d810fbdb29f9055f327f3dde36c26ef128
 }
-
 
 }
 
