@@ -60,9 +60,27 @@ return dbproducts;
 
 
 public Customer saveCustomer(Customer customer) {
+	
 	Customer save = customerRepository.save(customer);
+	
 	return save;
 }
+
+
+@Override
+public Customer updatById(Integer id, Customer customer) {
+
+	if(customerRepository.existsById(id)) {
+		
+		customer.setCustomerId(id);
+	
+		return  customerRepository.save(customer);
+
+	}
+	return null;
+}
+
+
 
 }
 
