@@ -8,23 +8,19 @@ import com.hotel.app.model.Customer;
 import com.hotel.app.repository.CustomerRepository;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
-	
-private CustomerRepository customerRepository;
+	private CustomerRepository customerRepository;
 
-public CustomerServiceImpl(CustomerRepository customerRepository) {
-	super();
-	this.customerRepository = customerRepository;
-}
+	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		super();
+		this.customerRepository = customerRepository;
+	}
 
-@Override
-public Customer saveCustomer(Customer customer) {
-	Customer save = customerRepository.save(customer);
-	return save;
-}
-
+	@Override
+	public Customer saveCustomer(Customer customer) {
+		Customer save = customerRepository.save(customer);
+		return save;
+	}
 
 }
-
-
