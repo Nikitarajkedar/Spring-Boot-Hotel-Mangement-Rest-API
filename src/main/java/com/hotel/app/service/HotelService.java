@@ -4,7 +4,7 @@ import com.hotel.app.model.Hotel;
 
 public interface HotelService {
 
-	Hotel SaveHotel(Hotel hotel);
+	Hotel saveHotel(Hotel hotel);
 
 	Hotel getDataById(Integer id);
 

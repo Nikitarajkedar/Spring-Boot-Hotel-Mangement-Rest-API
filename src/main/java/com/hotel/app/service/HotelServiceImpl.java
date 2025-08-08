@@ -16,9 +16,11 @@ public class HotelServiceImpl implements HotelService {
 		super();
 		this.hotelRepository = hotelRepository;
 	}
-
-	@Autowired
+  	@Autowired
 	private ModelMapper modelmapper;
+
+
+
 
 	@Override
 	public Hotel SaveHotel(Hotel hotel) {
@@ -58,6 +60,7 @@ public class HotelServiceImpl implements HotelService {
 		}
 
 		return null;
+
 	}
 
 }

@@ -24,6 +24,7 @@ public class HotelController {
 		this.hotelService = hotelService;
 	}
 
+
 	//Post URL- http://localhost:9090/api/hotels	
 	
 	@PostMapping(value = "/hotels")
