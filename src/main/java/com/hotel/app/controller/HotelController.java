@@ -30,7 +30,7 @@ public class HotelController {
 	@PostMapping(value = "/hotels")
 	public ResponseEntity<Hotel> SaveHotel(@RequestBody Hotel hotel) {
 
-		Hotel savehotel = hotelService.SaveHotel(hotel);
+		Hotel savehotel = hotelService.saveHotel(hotel);
 
 		return new ResponseEntity<Hotel>(savehotel, HttpStatus.CREATED);
 	}

@@ -28,19 +28,19 @@ public class CustomerController {
 		super();
 		this.customerService = customerService;
 	}
-	
+
 	//Get URL - http://localhost:9090/api/customer/1
 
 	@GetMapping(value="/customers/{id}")
 	public ResponseEntity<Customer> CustomerFindById(@PathVariable Integer id )
 	{
 		Customer dbcustomer=customerService.CustomerFindByID(id);
-		
+
 		if(dbcustomer!=null)
 		{
 			return new ResponseEntity<Customer>(dbcustomer, HttpStatus.OK);
 		}
-		
+
 		return new ResponseEntity<Customer>(dbcustomer, HttpStatus.NO_CONTENT);
 
 	}
@@ -50,13 +50,13 @@ public class CustomerController {
 
 	@GetMapping(value = "/customers")
 	public ResponseEntity<List<Customer>> getCustomerDataByPage(
-		@RequestParam(defaultValue = "0") Integer pageNumber,
-		@RequestParam(defaultValue = "2") Integer size) {
+			@RequestParam(defaultValue = "0") Integer pageNumber,
+			@RequestParam(defaultValue = "2") Integer size) {
 
 		List<Customer> pageCustomer = customerService.getCustomerDataByPage(pageNumber, size);
-		
+
 		System.out.println("get customer By page");
-		
+
 		return new ResponseEntity<List<Customer>>(pageCustomer, HttpStatus.OK);
 
 	}
@@ -72,9 +72,9 @@ public class CustomerController {
 
 	}
 
-  
+
 	//Put URL - http://localhost:9090/api/customer/1
-  
+
 	@PutMapping(value = "/customers/{id}")
 	public ResponseEntity<Customer> updateById(@PathVariable Integer id, @RequestBody Customer customer) {
 		Customer updateCustomer = customerService.updatById(id, customer);
@@ -85,24 +85,19 @@ public class CustomerController {
 		}
 		return new ResponseEntity<Customer>(updateCustomer, HttpStatus.NO_CONTENT);
 	}
-	
+
 	@DeleteMapping(value="/customers/{id}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable int id)
 	{
 		String msg=customerService.deleteCustomer(id);
 
-    if(msg!=null)
+		if(msg!=null)
 		{
 			return new ResponseEntity<String>(msg, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(msg, HttpStatus.NO_CONTENT);
-		
-  }
-}
-    
-	
-		
-		
+
 	}
-	
 }
+	
+

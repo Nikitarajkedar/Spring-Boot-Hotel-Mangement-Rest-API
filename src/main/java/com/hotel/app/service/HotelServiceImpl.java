@@ -23,7 +23,7 @@ public class HotelServiceImpl implements HotelService {
 
 
 	@Override
-	public Hotel SaveHotel(Hotel hotel) {
+	public Hotel saveHotel(Hotel hotel) {
 
 		Hotel saveHotel = hotelRepository.save(hotel);
 
