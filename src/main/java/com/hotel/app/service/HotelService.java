@@ -6,4 +6,10 @@ public interface HotelService {
 
 	Hotel SaveHotel(Hotel hotel);
 
+	Hotel getDataById(Integer id);
+
+
+	Hotel updateHotelsData(Integer id, Hotel hotel);
+
+
 }

@@ -13,7 +13,7 @@ public interface CustomerService {
 	Customer CustomerFindByID(int id);
 
 
-	List<Customer> getCutomerDataByPage(Integer pageNumber, Integer size);
+	List<Customer> getCustomerDataByPage(Integer pageNumber, Integer size);
 
 
 	Customer saveCustomer(Customer customer);
