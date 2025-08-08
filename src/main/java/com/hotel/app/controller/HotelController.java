@@ -25,6 +25,7 @@ public class HotelController {
 	}
 
 	//Post URL- http://localhost:9090/api/hotels	
+	
 	@PostMapping(value = "/hotels")
 	public ResponseEntity<Hotel> SaveHotel(@RequestBody Hotel hotel) {
 
@@ -49,7 +50,7 @@ public class HotelController {
 		return new ResponseEntity<Hotel>(dbHotel, HttpStatus.NO_CONTENT);
 	}
 
-	// URL- http://localhost:9090/api/hotels/1
+	//Patch URL- http://localhost:9090/api/hotels/1
 
 	@PatchMapping(value = "/hotels/{id}")
 	public ResponseEntity<Hotel> partiallyUpdatHotelsData(@PathVariable Integer id, @RequestBody Hotel hotel) {
