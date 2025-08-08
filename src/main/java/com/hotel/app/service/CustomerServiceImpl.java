@@ -1,6 +1,4 @@
 package com.hotel.app.service;
-
-
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,8 +7,7 @@ import com.hotel.app.model.Customer;
 import com.hotel.app.repository.CustomerRepository;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
-
+public class CustomerServiceImpl implements CustomerService {
 
 	private CustomerRepository customerRepository;
 
@@ -19,26 +16,10 @@ public class CustomerServiceImpl implements CustomerService{
 		this.customerRepository = customerRepository;
 	}
 
-	@Override
-
-	public Customer CustomerFindByID(int id) {
-
-		boolean flag = customerRepository.existsById(id);
-
-		if(flag)
-		{
-			Customer customer = customerRepository.findById(id).get();
-
-			return customer;
-		}
 
 
-		return null;
-	}
-
-
-
-	public List<Customer> getCustomerDataByPage(Integer pageNumber, Integer size) {
+    @Override
+public List<Customer> getCustomerDataByPage(Integer pageNumber, Integer size) {
 
 		PageRequest pageRequest= PageRequest.of(pageNumber, size);
 
@@ -50,12 +31,29 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 
+    @Override
 	public Customer saveCustomer(Customer customer) {
 
 		Customer save = customerRepository.save(customer);
+   
+    return save;
+  }
 
-		return save;
+    @Override
+public Customer CustomerFindByID(int id) {
+
+		boolean flag = customerRepository.existsById(id);
+
+		if(flag)
+		{
+			Customer customer = customerRepository.findById(id).get();
+
+			return customer;
+		}
+		return null;
 	}
+
+
 
 
 	@Override
@@ -67,12 +65,26 @@ public class CustomerServiceImpl implements CustomerService{
 
 			return  customerRepository.save(customer);
 
+
 		}
 		return null;
 	}
 
 
 
+	@Override
+	public String deleteCustomer(int id) {
+	
+		boolean flag = customerRepository.existsById(id);
+		
+		if(flag)
+		{
+			customerRepository.deleteById(id);
+			
+			return "Deleted Customer Successfully";
+		}
+		
+		return "Id Not Find it";
+	}
+
 }
-
-

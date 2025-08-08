@@ -21,6 +21,9 @@ public interface CustomerService {
 	Customer updatById(Integer id, Customer customer);
 
 
+	String deleteCustomer(int id);
+
+
 
 	
 }
