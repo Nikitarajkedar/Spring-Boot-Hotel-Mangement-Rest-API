@@ -28,6 +28,8 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 	
+	//Get URL - http://localhost:9090/api/customer/1
+
 	@GetMapping(value="/customers/{id}")
 	public ResponseEntity<Customer> CustomerFindById(@PathVariable Integer id )
 	{
@@ -42,7 +44,7 @@ public class CustomerController {
 	}
 
 	// GET all the products-By-Page
-	// URL - http://localhost:9090/api/customer?page=2
+	//Get URL - http://localhost:9090/api/customer?page=2
 
 	@GetMapping(value = "/customers")
 	public ResponseEntity<List<Customer>> getCustomerDataByPage(
@@ -56,6 +58,7 @@ public class CustomerController {
 		return new ResponseEntity<List<Customer>>(pageCustomer, HttpStatus.OK);
 
 	}
+	//Post URL - http://localhost:9090/api/customer
 
 	@PostMapping(value = "/customers")
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer){
@@ -66,6 +69,8 @@ public class CustomerController {
 		
 	}
 	
+	//Put URL - http://localhost:9090/api/customer/1
+
 	@PutMapping(value = "/customers/{id}")
 	public ResponseEntity<Customer> updateById(@PathVariable Integer id,@RequestBody Customer customer){
 	Customer updateCustomer = customerService.updatById(id,customer); 
