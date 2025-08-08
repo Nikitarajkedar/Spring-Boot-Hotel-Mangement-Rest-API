@@ -49,7 +49,7 @@ public class CustomerController {
 		@RequestParam(defaultValue = "0") Integer pageNumber,
 		@RequestParam(defaultValue = "2") Integer size) {
 
-		List<Customer> pageCustomer = customerService.getCutomerDataByPage(pageNumber, size);
+		List<Customer> pageCustomer = customerService.getCustomerDataByPage(pageNumber, size);
 		
 		System.out.println("get customer By page");
 		
